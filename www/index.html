@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+<link rel="stylesheet" type="text/css" href="css/index.css" />
+<!-- Include jQuery Mobile stylesheets -->
+<!--<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">-->
+<!-- Include the jQuery library -->
+<script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+<!-- Include the jQuery Mobile library -->
+<!--<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+<title>TheRide Arrivals</title>
+<link rel="stylesheet" href="css/jquery.sidr.dark.min.css">
+<script src="js/jquery.sidr.min.js"></script>
+</head>
+<body onload="onLoad();">
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/admob.js"></script>
+    <script type="text/javascript" src="js/favorites.js"></script>
+    <div id="fullpage" data-role="page">
+		<div id="contentBox" class="box">
+                 <h3><a id="simplemenu" href="#sidr" style="font-size: xx-large; background-color: #9ab5de; padding: 5px">&#9776;</a>
+               TheRide Arrivals</h3>
+            <div id="sidr">
+              <ul>
+                <li><a href="index.html" >Arrivals</a></li>
+                <li><a href="Favorites.html" >Favorites</a></li>
+              </ul>
+            </div>
+            <br>
+ 					<div class="accs-form-group">
+						<label class="accs-form-label accs-hidden" for="route">Route:</label>
+						    <select name="routeNumber" id="routeSelect" class="dropList" onchange="loadDirections();">
+                                <option value="" disabled="disabled" selected="selected">Select A Route</option>
+                                <option label="3 - Huron River" value="3">3 - Huron River</option>
+                                <option label="4 - Washtenaw" value="4">4 - Washtenaw</option>
+                                <option label="5 - Packard" value="5">5 - Packard</option>
+                                <option label="6 - Ellsworth" value="6">6 - Ellsworth</option>
+                                <option label="21 - Amtrak - Depot" value="21">21 - Amtrak - Depot</option>
+                                <option label="22 - Pontiac - Dhu Varren" value="22">22 - Pontiac - Dhu Varren</option>
+                                <option label="23 - Plymouth" value="23">23 - Plymouth</option>
+                                <option label="24 - South Main - East" value="24">24 - South Main - East</option>
+                                <option label="25 - Ann Arbor - Saline Rd" value="25">25 - Ann Arbor - Saline Rd</option>
+                                <option label="26 - Scio Church" value="26">26 - Scio Church</option>
+                                <option label="27 - W Stadium - Oak Valley" value="27">27 - W Stadium - Oak Valley</option>
+                                <option label="28 - Pauline" value="28">28 - Pauline</option>
+                                <option label="29 - Liberty" value="29">29 - Liberty</option>
+                                <option label="30 - Jackson" value="30">30 - Jackson</option>
+                                <option label="31 - Dexter Ave" value="31">31 - Dexter Ave</option>
+                                <option label="32 - Miller - Maple" value="32">32 - Miller - Maple</option>
+                                <option label="33 - Newport" value="33">33 - Newport</option>
+                                <option label="41 - EMU College of Business" value="41">41 - EMU College of Business</option>
+                                <option label="42 - Forest - MacArthur" value="42">42 - Forest - MacArthur</option>
+                                <option label="43 - E Michigan Ave" value="43">43 - E Michigan Ave</option>
+                                <option label="44 - Ecorse - Tyler" value="44">44 - Ecorse - Tyler</option>
+                                <option label="45 - Grove" value="45">45 - Grove</option>
+                                <option label="46 - Huron - Textile" value="46">46 - Huron - Textile</option>
+                                <option label="47 - Harriet - W Michigan" value="47">47 - Harriet - W Michigan</option>
+                                <option label="60 - U-M - Dexter" value="60">60 - U-M - Dexter</option>
+                                <option label="61 - Airport - Avis Farms" value="61">61 - Airport - Avis Farms</option>
+                                <option label="62 - U-M - State" value="62">62 - U-M - State</option>
+                                <option label="63 - U-M - Pontiac" value="63">63 - U-M - Pontiac</option>
+                                <option label="64 - Geddes - E Stadium" value="64">64 - Geddes - E Stadium</option>
+                                <option label="65 - U-M - Downtown - Green" value="65">65 - U-M - Downtown - Green</option>
+                                <option label="66 - Carpenter - Huron Pkwy" value="66">66 - Carpenter - Huron Pkwy</option>
+                                <option label="67 - Platt - Michigan Ave" value="67">67 - Platt - Michigan Ave</option>
+                                <option label="68 - Harris - Ford" value="68">68 - Harris - Ford</option>
+                                <option label="91 - ExpressRide: Chelsea" value="91">91 - ExpressRide: Chelsea</option>
+                                <option label="92 - ExpressRide: Canton" value="92">92 - ExpressRide: Canton</option>    		
+                            </select>
+               		</div>
+				
+					<div class="accs-form-group">
+						<label class="accs-form-label" for="stopSelect">Direction:</label>
+    		            <select class="dropList" id="routeDirectionSelect" name="direction" disabled="disabled" onchange="loadStops();">
+    			            <option value="0">- Select Direction -</option>
+                    	</select>
+					</div>
+                	<div class="form-group">
+                        <label class="accs-form-label" for="stopSelect">Stop:</label>
+    		            <select name="stopID" id="routeStopSelect" class="dropList" disabled="disabled" onchange="loadArrivals();">
+    			            <option value="0">- Select Stop -</option>
+                    	</select>
+    	            </div>
+                    <h2 style="text-align:center;">
+                        <button onclick="saveFavorites();" id="btnSave" style="border:none; background-color:green; color:black;visibility: hidden;">&#x271A; Add to favorites</button>
+                    </h2>
+                    <label id="message" style="font-size: large;"></label> 
+                  <div class="js-next-bus-results" style="display:none; text-align: center;">
+                 </div>
+
+</div>
+</div>
+</body>
+</html>
