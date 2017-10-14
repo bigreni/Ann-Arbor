@@ -72,8 +72,8 @@ function askRating()
   usesUntilPrompt: 10,
   promptAgainForEachNewVersion: true,
   storeAppURL: {
-                ios: '1225698349',
-                android: 'market://details?id=com.annarbor.withads'
+                ios: '1296111737',
+                android: 'market://details?id=com.annarbor.free'
                }
 };
  
@@ -82,6 +82,10 @@ AppRate.promptForRating(false);
 
 
 function loadDirections() {
+    $('.js-next-bus-results').html('').hide(); // reset output container's html
+    document.getElementById('btnSave').style.visibility = "hidden";
+    $("#routeStopSelect").attr("disabled", "");
+    $("#routeStopSelect").val('0');
     $.ajax(
           {
               type: "GET",
@@ -114,6 +118,8 @@ function loadDirections() {
 
 
 function loadStops() {
+    $('.js-next-bus-results').html('').hide(); // reset output container's html
+    document.getElementById('btnSave').style.visibility = "hidden";
     $.ajax(
           {
               type: "GET",
@@ -168,7 +174,7 @@ function loadArrivals() {
                       else if (predictions.length > 1) {
                           $.each(predictions, function (index, item) {
                               if (item.rd == $("#routeSelect").val()) {
-                                  results = results.concat("<p>To: " + item.fd + " - " + item.pt + " " + item.pu + "</p>");
+                                  results = results.concat("<p>" + $("#routeSelect").val() + item.fd + " - " + item.pt + " " + item.pu + "</p>");
                               }
                           });
                       }

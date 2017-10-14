@@ -32,8 +32,9 @@
               </ul>
             </div>
             <br>
- 					<div class="accs-form-group">
-						<label class="accs-form-label accs-hidden" for="route">Route:</label>
+            <div style="margin: 0 1vw 0 1vw;">
+ 					<div>
+						<label for="route">Route:</label>
 						    <select name="routeNumber" id="routeSelect" class="dropList" onchange="loadDirections();">
                                 <option value="" disabled="disabled" selected="selected">Select A Route</option>
                                 <option label="3 - Huron River" value="3">3 - Huron River</option>
@@ -74,25 +75,25 @@
                             </select>
                		</div>
 				
-					<div class="accs-form-group">
-						<label class="accs-form-label" for="stopSelect">Direction:</label>
+					<div>
+						<label for="stopSelect">Direction:</label>
     		            <select class="dropList" id="routeDirectionSelect" name="direction" disabled="disabled" onchange="loadStops();">
     			            <option value="0">- Select Direction -</option>
                     	</select>
 					</div>
-                	<div class="form-group">
-                        <label class="accs-form-label" for="stopSelect">Stop:</label>
+                	<div>
+                        <label for="stopSelect">Stop:</label>
     		            <select name="stopID" id="routeStopSelect" class="dropList" disabled="disabled" onchange="loadArrivals();">
     			            <option value="0">- Select Stop -</option>
                     	</select>
     	            </div>
                     <h2 style="text-align:center;">
-                        <button onclick="saveFavorites();" id="btnSave" style="border:none; background-color:green; color:black;visibility: hidden;">&#x271A; Add to favorites</button>
+                        <button onclick="saveFavorites();" id="btnSave" style="border:none; background-color: lightgreen; color:black;visibility: hidden;">&#x2764; Add to favorites</button>
                     </h2>
                     <label id="message" style="font-size: large;"></label> 
                   <div class="js-next-bus-results" style="display:none; text-align: center;">
                  </div>
-
+        </div>
 </div>
 </div>
 </body>
