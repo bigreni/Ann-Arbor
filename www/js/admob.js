@@ -10,12 +10,12 @@
   if( /(android)/i.test(navigator.userAgent) ) { // for android & amazon-fireos
     admobid = {
       banner: 'ca-app-pub-1683858134373419/7790106682', // or DFP format "/6253334/dfp_example_ad"
-      interstitial: 'ca-app-pub-9249695405712287/4904986440'
+      interstitial: 'ca-app-pub-9249695405712287/5288129821'
     };
   } else if(/(ipod|iphone|ipad)/i.test(navigator.userAgent)) { // for ios
     admobid = {
       banner: 'ca-app-pub-1683858134373419/7790106682', // or DFP format "/6253334/dfp_example_ad"
-      interstitial: 'ca-app-pub-9249695405712287/7995195971'
+      interstitial: 'ca-app-pub-9249695405712287/8955912090'
     };
   }
 
@@ -38,12 +38,14 @@
     function registerAdEvents() {
         // new events, with variable to differentiate: adNetwork, adType, adEvent
         document.addEventListener('onAdFailLoad', function (data) {
-
+            document.getElementById('screen').style.display = 'none';     
         });
         document.addEventListener('onAdLoaded', function (data) { });
         document.addEventListener('onAdPresent', function (data) { });
         document.addEventListener('onAdLeaveApp', function (data) { });
-        document.addEventListener('onAdDismiss', function (data) { });
+        document.addEventListener('onAdDismiss', function (data) { 
+            document.getElementById('screen').style.display = 'none';     
+        });
     }
 
     function createSelectedBanner() {
@@ -62,6 +64,7 @@
 
         initApp();
         askRating();
+        //document.getElementById('screen').style.display = 'none';     
     }
 
 function askRating()
@@ -86,6 +89,7 @@ function loadDirections() {
     document.getElementById('btnSave').style.visibility = "hidden";
     $("#routeStopSelect").attr("disabled", "");
     $("#routeStopSelect").val('0');
+    $("#message").text('');
     $.ajax(
           {
               type: "GET",
@@ -102,9 +106,15 @@ function loadDirections() {
                   var list = $("#routeDirectionSelect");
                   $(list).empty();
                   $(list).append($("<option disabled/>").val("0").text("- Select Direction -"));
-                  $.each(directions, function (index, item) {
-                      $(list).append($("<option />").val(item).text(item));
-                  });
+                  var numDirections = JSON.stringify(directions).split(",");
+                  if (numDirections.length == 1) {
+                      $(list).append($("<option />").val(directions).text(directions));
+                  }
+                  else {
+                      $.each(directions, function (index, item) {
+                          $(list).append($("<option />").val(item).text(item));
+                      });
+                  }
                   $(list).removeAttr('disabled');
                   $(list).val('0');
               },
@@ -120,11 +130,12 @@ function loadDirections() {
 function loadStops() {
     $('.js-next-bus-results').html('').hide(); // reset output container's html
     document.getElementById('btnSave').style.visibility = "hidden";
+    $("#message").text('');
     $.ajax(
           {
               type: "GET",
               url: "http://www.theride.org/DesktopModules/AATA.EndPoint/Proxy.ashx",
-              data: "d=" + $("#routeDirectionSelect").val().split(' ').join('+') + "&method=getstopsbyrouteanddirection&routeid=" + $("#routeSelect").val(),
+              data: "d=" + $("#routeDirectionSelect").val().replace('+', '%2b').split(' ').join('+') + "&method=getstopsbyrouteanddirection&routeid=" + $("#routeSelect").val(),
               contentType: "application/json;	charset=utf-8",
               dataType: "json",
               success: function (msg) {
