@@ -57,6 +57,7 @@ xmlns:gap="http://phonegap.com/ns/1.0"
     <icon gap:platform="ios" height="76" src="res/icon/ios/Icon76.png" width="76" />
     <icon gap:platform="ios" height="152" src="res/icon/ios/Icon152.png" width="152" />
     <icon gap:platform="ios" height="50" src="res/icon/ios/Icon50.png" width="50" />
+    <icon gap:platform="ios" height="40" src="res/icon/ios/Icon40.png" width="40" />
     <icon gap:platform="ios" height="100" src="res/icon/ios/Icon100.png" width="100" />
     <icon gap:platform="webos" src="res/icon/webos/icon-64.png" />
     <icon gap:platform="winphone" src="res/icon/windows-phone/icon-48.png" />
