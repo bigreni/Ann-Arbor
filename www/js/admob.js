@@ -61,7 +61,9 @@
         $('#simplemenu').sidr();
         $("span").remove();
         $(".dropList").select2();
-
+        window.ga.startTrackerWithId('UA-88579601-9', 1, function(msg) {
+            window.ga.trackView('Home');
+        });
         initApp();
         askRating();
         //document.getElementById('screen').style.display = 'none';     
@@ -106,15 +108,8 @@ function loadDirections() {
                   var list = $("#routeDirectionSelect");
                   $(list).empty();
                   $(list).append($("<option disabled/>").val("0").text("- Select Direction -"));
-                  var numDirections = JSON.stringify(directions).split(",");
-                  if (numDirections.length == 1) {
-                      $(list).append($("<option />").val(directions).text(directions));
-                  }
-                  else {
-                      $.each(directions, function (index, item) {
-                          $(list).append($("<option />").val(item).text(item));
-                      });
-                  }
+                  for(var x in directions)
+                      $(list).append($("<option />").val(directions[x].id).text(directions[x].name));
                   $(list).removeAttr('disabled');
                   $(list).val('0');
               },
@@ -162,7 +157,7 @@ function loadStops() {
 
 function loadArrivals() {
     var outputContainer = $('.js-next-bus-results');
-
+    var results = "";
     $.ajax(
           {
               type: "GET",
@@ -171,37 +166,61 @@ function loadArrivals() {
               contentType: "application/json;	charset=utf-8",
               dataType: "json",
               success: function (output) {
-                  if (output == null || output.length == 0) {
-                      $(outputContainer).html('').hide(); // reset output container's html
+                  if (output == null || output.length == 0 || output['bustime-response'].error != null) {
+                      //$(outputContainer).html('').hide(); // reset output container's html
                       document.getElementById('btnSave').style.visibility = "hidden";
+                      results = results.concat('<p>' + output['bustime-response'].error.msg + '</p>');
                   }
                   else {
-                      var results = "";
-                      var predictions = output.stop.pre;
-                      if(predictions == null)
-                      {
-                        results = results.concat("<p> No upcoming arrivals.</p>");
+                      var predictions = output['bustime-response'].prd;
+                      if (predictions == null) {
+                          results = results.concat("<p> Oops. Something went wrong. Please check if there is a new app version.</p>");
                       }
                       else if (predictions.length > 1) {
-                          $.each(predictions, function (index, item) {
-                              if (item.rd == $("#routeSelect").val()) {
-                                  results = results.concat("<p>" + $("#routeSelect").val() + item.fd + " - " + item.pt + " " + item.pu + "</p>");
+                          for (var x in predictions) {
+                              if (predictions[x].rt == $("#routeSelect").val()) {
+                                  var arrivalTime = "";
+                                  if (predictions[x].prdctdn == 'DUE') {
+                                      arrivalTime = "< 1 min";
+                                  }
+                                  else if (predictions[x].prdctdn == 'DLY') {
+                                      arrivalTime = "DELAYED";
+                                  }
+                                  else {
+                                      arrivalTime = predictions[x].prdctdn + "min";
+                                  }
+                                  results = results.concat("<p>To: " + predictions[x].des + " - " + arrivalTime + "</p>");
                               }
-                          });
-                      }
-                      else
-                      {
-                          if (predictions.rd == $("#routeSelect").val()) {
-                              results = results.concat("<p>To: " + predictions.fd + " - " + predictions.pt + " " + predictions.pu + "</p>");
                           }
                       }
-                      if(results == "")
-                      {
+                      else {
+                          if (predictions.rt == $("#routeSelect").val()) {
+                                  var arrivalTime = "";
+                                  if (predictions.prdctdn == 'DUE') {
+                                      arrivalTime = '< 1 min';
+                                  }
+                                  else if (predictions.prdctdn == 'DLY') {
+                                      arrivalTime = 'DELAYED';
+                                  }
+                                  else {
+                                      arrivalTime = predictions.prdctdn + "min";
+                                  }                              
+                                  results = results.concat("<p>To: " + predictions.des + " - " + arrivalTime + "</p>");
+                          }
+                      }
+
+                      if (results == "") {
                           results = results.concat("<p> No upcoming arrivals.</p>");
                       }
-                      $(outputContainer).html(results).show();
                       document.getElementById('btnSave').style.visibility = "visible";
                   }
+                      $(outputContainer).html(results).show();
               }
           });
+}
+
+function loadFaves()
+{
+    window.location = "Favorites.html";
+    window.ga.trackView('Favorites');
 }

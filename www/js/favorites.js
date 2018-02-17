@@ -56,6 +56,7 @@ function removeFavorite(index)
 function loadFaveArrivals(route,direction,stop)
 {
     var outputContainer = $('.js-next-bus-results');
+    var results = "";
 
     $.ajax(
           {
@@ -65,35 +66,52 @@ function loadFaveArrivals(route,direction,stop)
               contentType: "application/json;	charset=utf-8",
               dataType: "json",
               success: function (output) {
-                  if (output == null || output.length == 0) {
-                      $(outputContainer).html('').hide(); // reset output container's html
+                  if (output == null || output.length == 0 || output['bustime-response'].error != null) {
+                      results = results.concat('<p>' + output['bustime-response'].error.msg + '</p>');
                   }
                   else {
-                      var results = "";
-                      var predictions = output.stop.pre;
-                      if(predictions == null)
-                      {
-                        results = results.concat("<p> No upcoming arrivals.</p>");
+                      var predictions = output['bustime-response'].prd;
+                      if (predictions == null) {
+                          results = results.concat("<p> Oops. Something went wrong. Please check if there is a new app version.</p>");
                       }
                       else if (predictions.length > 1) {
-                          $.each(predictions, function (index, item) {
-                              if (item.rd == route) {
-                                  results = results.concat("<p>To: " + item.fd + " - " + item.pt + " " + item.pu + "</p>");
+                          for (var x in predictions) {
+                              if (predictions[x].rt == route) {
+                                  var arrivalTime = "";
+                                  if (predictions[x].prdctdn == 'DUE') {
+                                      arrivalTime = "< 1 min";
+                                  }
+                                  else if (predictions[x].prdctdn == 'DLY') {
+                                      arrivalTime = "DELAYED";
+                                  }
+                                  else {
+                                      arrivalTime = predictions[x].prdctdn + "min";
+                                  }
+                                  results = results.concat("<p>To: " + predictions[x].des + " - " + arrivalTime + "</p>");
                               }
-                          });
-                      }
-                      else
-                      {
-                          if (predictions.rd == route) {
-                              results = results.concat("<p>To: " + predictions.fd + " - " + predictions.pt + " " + predictions.pu + "</p>");
                           }
                       }
-                      if(results == "")
-                      {
+                      else {
+                          if (predictions.rt == route) {
+                                  var arrivalTime = "";
+                                  if (predictions.prdctdn == 'DUE') {
+                                      arrivalTime = '< 1 min';
+                                  }
+                                  else if (predictions.prdctdn == 'DLY') {
+                                      arrivalTime = 'DELAYED';
+                                  }
+                                  else {
+                                      arrivalTime = predictions.prdctdn + "min";
+                                  }                              
+                                  results = results.concat("<p>To: " + predictions.des + " - " + arrivalTime + "</p>");
+                          }
+                      }
+
+                      if (results == "") {
                           results = results.concat("<p> No upcoming arrivals.</p>");
                       }
-                      $(outputContainer).html(results).show();
                   }
+                  $(outputContainer).html(results).show();
               }
           });
 }
