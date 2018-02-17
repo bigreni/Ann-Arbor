@@ -108,8 +108,14 @@ function loadDirections() {
                   var list = $("#routeDirectionSelect");
                   $(list).empty();
                   $(list).append($("<option disabled/>").val("0").text("- Select Direction -"));
+                  if(directions.length > 1) {
                   for(var x in directions)
-                      $(list).append($("<option />").val(directions[x].id).text(directions[x].name));
+                      $(list).append($("<option />").val(directions[x].id).text(directions[x].name));    
+                  }
+                  else {
+                      $(list).append($("<option />").val(directions.id).text(directions.name));    
+                  }
+                  
                   $(list).removeAttr('disabled');
                   $(list).val('0');
               },
