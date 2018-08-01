@@ -2,7 +2,7 @@
 <widget 
 id="com.annarbor.free" 
 version="1.0.4"
-versionCode = "6" 
+versionCode = "7" 
 xmlns="http://www.w3.org/ns/widgets"
 xmlns:gap="http://phonegap.com/ns/1.0"
 >
