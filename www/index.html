@@ -5,8 +5,12 @@
 <meta name="format-detection" content="telephone=no" />
 <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
 <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="http://bigreni.com/css/annarbor/index.css" />
-<!--<link rel="stylesheet" type="text/css" href="css/index.css" />-->
+<script type="text/javascript">
+    var cachebuster = Math.round(new Date().getTime() / 1000);
+    //document.write('<link rel="stylesheet" type="text/css" href="css/index.css?cb=' +cachebuster+'"></li' + 'nk>');
+    document.write('<link rel="stylesheet" type="text/css" href="http://bigreni.com/css/annarbor/index.css?cb=' +cachebuster+'"></li' + 'nk>');
+</script>
+<!--<link rel="stylesheet" type="text/css" href="http://bigreni.com/css/annarbor/index.css" />-->
 <!-- Include jQuery Mobile stylesheets -->
 <!--<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">-->
 <!-- Include the jQuery library -->
@@ -31,7 +35,7 @@
                 left: 0;
                 right: 0;
                 z-index:1001;
-                background: lightgrey;
+                background: url(http://bigreni.com/img/status.gif) no-repeat center center;
                 text-shadow: none;
                 color: black;
             }
@@ -39,12 +43,9 @@
 </head>
 <body>
     <script type="text/javascript" src="cordova.js"></script>
-    <!--<script type="text/javascript" src="http://bigreni.com/js/annarbor/main.js"></script>-->
-    <!--<script type="text/javascript" src="js/main.js"></script>-->
     <script type="text/javascript">
-        var cachebuster = Math.round(new Date().getTime() / 1000);
-        document.write('<script type="text/javascript" src="http://bigreni.com/js/annarbor/main.js?cb=' +cachebuster+'"></scr' + 'ipt>');
-        //document.write('<script type="text/javascript" src="js/main_1.js?cb=' +cachebuster+'"></scr' + 'ipt>');
+        //document.write('<script type="text/javascript" src="http://bigreni.com/js/annarbor/main.js?cb=' +cachebuster+'"></scr' + 'ipt>');
+        document.write('<script type="text/javascript" src="js/main.js?cb=' +cachebuster+'"></scr' + 'ipt>');
     </script>	
     <div id="screen" class="splashscreen" style="display: none"></div>
         <script>
@@ -54,7 +55,7 @@
                 onLoad();
                 //document.getElementById("screen").style.display = 'none';
             };
-            document.getElementById("screen").innerHTML = 'Loading...';
+            //document.getElementById("screen").innerHTML = 'Loading...';
             document.getElementById("screen").style.display = 'block';
         </script> 
     <div id="fullpage" data-role="page">
