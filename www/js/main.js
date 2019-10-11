@@ -103,7 +103,7 @@ function loadDirections() {
     $.ajax(
           {
               type: "GET",
-              url: "http://www.theride.org/DesktopModules/AATA.EndPoint/Proxy.ashx",
+              url: "https://www.theride.org/DesktopModules/AATA.EndPoint/Proxy.ashx",
               data: "method=routedirs&routeid=" + $("#routeSelect").val(),
               contentType: "application/json;	charset=utf-8",
               dataType: "json",
