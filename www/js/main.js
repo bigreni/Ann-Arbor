@@ -109,7 +109,7 @@ function loadDirections() {
     $.ajax(
           {
               type: "GET",
-              url: "http://www.theride.org/DesktopModules/AATA.EndPoint/Proxy.ashx",
+              url: "https://www.theride.org/DesktopModules/AATA.EndPoint/Proxy.ashx",
               data: "method=routedirs&routeid=" + $("#routeSelect").val(),
               contentType: "application/json;	charset=utf-8",
               dataType: "json",
@@ -149,7 +149,7 @@ function loadStops() {
     $.ajax(
           {
               type: "GET",
-              url: "http://www.theride.org/DesktopModules/AATA.EndPoint/Proxy.ashx",
+              url: "https://www.theride.org/DesktopModules/AATA.EndPoint/Proxy.ashx",
               data: "d=" + $("#routeDirectionSelect").val().replace('+', '%2b').split(' ').join('+') + "&method=getstopsbyrouteanddirection&routeid=" + $("#routeSelect").val(),
               contentType: "application/json;	charset=utf-8",
               dataType: "json",
