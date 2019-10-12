@@ -1,4 +1,5 @@
     function onLoad() {
+        alert('here');
         if ((/(ipad|iphone|ipod|android|windows phone)/i.test(navigator.userAgent))) {
             document.addEventListener('deviceready', checkFirstUse, false);
         } else {
