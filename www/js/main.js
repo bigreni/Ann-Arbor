@@ -59,8 +59,8 @@
 
    function checkFirstUse()
     {
-        alert('here2');
-        $('#simplemenu').sidr();
+        //alert('here2');
+        //$('#simplemenu').sidr();
         alert('here3');
         $("span").remove();
         alert('here4');
@@ -77,7 +77,7 @@
 
    function notFirstUse()
     {
-        $('#simplemenu').sidr();
+        //$('#simplemenu').sidr();
         $("span").remove();
         $(".dropList").select2();
         document.getElementById('screen').style.display = 'none';     
@@ -109,7 +109,7 @@ function loadDirections() {
     $.ajax(
           {
               type: "GET",
-              url: "https://www.theride.org/DesktopModules/AATA.EndPoint/Proxy.ashx",
+              url: "http://www.theride.org/DesktopModules/AATA.EndPoint/Proxy.ashx",
               data: "method=routedirs&routeid=" + $("#routeSelect").val(),
               contentType: "application/json;	charset=utf-8",
               dataType: "json",
@@ -149,7 +149,7 @@ function loadStops() {
     $.ajax(
           {
               type: "GET",
-              url: "https://www.theride.org/DesktopModules/AATA.EndPoint/Proxy.ashx",
+              url: "http://www.theride.org/DesktopModules/AATA.EndPoint/Proxy.ashx",
               data: "d=" + $("#routeDirectionSelect").val().replace('+', '%2b').split(' ').join('+') + "&method=getstopsbyrouteanddirection&routeid=" + $("#routeSelect").val(),
               contentType: "application/json;	charset=utf-8",
               dataType: "json",
