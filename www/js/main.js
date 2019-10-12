@@ -59,11 +59,16 @@
 
    function checkFirstUse()
     {
+        alert('here2');
         $('#simplemenu').sidr();
+        alert('here3');
         $("span").remove();
+        alert('here4');
         $(".dropList").select2();
+        alert('here5');
         initApp();
-        askRating();
+        alert('here6');
+        //askRating();
         //window.ga.startTrackerWithId('UA-88579601-9', 1, function(msg) {
         //    window.ga.trackView('Home');
         //});
@@ -144,7 +149,7 @@ function loadStops() {
     $.ajax(
           {
               type: "GET",
-              url: "http://www.theride.org/DesktopModules/AATA.EndPoint/Proxy.ashx",
+              url: "https://www.theride.org/DesktopModules/AATA.EndPoint/Proxy.ashx",
               data: "d=" + $("#routeDirectionSelect").val().replace('+', '%2b').split(' ').join('+') + "&method=getstopsbyrouteanddirection&routeid=" + $("#routeSelect").val(),
               contentType: "application/json;	charset=utf-8",
               dataType: "json",
@@ -176,7 +181,7 @@ function loadArrivals() {
     $.ajax(
           {
               type: "GET",
-              url: "http://www.theride.org/DesktopModules/AATA.EndPoint/Proxy.ashx",
+              url: "https://www.theride.org/DesktopModules/AATA.EndPoint/Proxy.ashx",
               data: "method=getpredictionsfromxml&stpid=" + $("#routeStopSelect").val(),
               contentType: "application/json;	charset=utf-8",
               dataType: "json",
