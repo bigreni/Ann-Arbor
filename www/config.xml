@@ -54,6 +54,7 @@ xmlns:gap="http://phonegap.com/ns/1.0"
             <application android:usesCleartextTraffic="true" />
     </edit-config>
     </platform>
+    <platform name="ios" />
     <icon src="icon.png" gap:role="default" />
     <icon gap:platform="android" gap:qualifier="ldpi" src="res/icon/android/Icon-36.png" />
     <icon gap:platform="android" gap:qualifier="mdpi" src="res/icon/android/Icon-48.png" />

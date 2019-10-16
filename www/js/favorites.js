@@ -91,7 +91,11 @@ function loadFaveArrivals(route,direction,stop)
                       }
                   }
                   $(outputContainer).html(results).show();
-              }
+              },
+              error: function () {
+                  results = results.concat("<p> TheRide is currently having issues with real-time arrivals. We are working on fixing the issue. Thank you for your patience.</p>");
+                  $(outputContainer).html(results).show();
+              }               
           });
 }
 

@@ -109,6 +109,7 @@ function loadDirections() {
               dataType: "json",
               success: function (msg) {
                   if (msg == null || msg.length == 0) {
+                      $("#message").text('TheRide is currently having issues with real-time arrivals. We are working on fixing the issue. Thank you for your patience.');
                       return;
                   }
 
@@ -116,18 +117,20 @@ function loadDirections() {
                   var list = $("#routeDirectionSelect");
                   $(list).empty();
                   $(list).append($("<option disabled/>").val("0").text("- Select Direction -"));
-                  if(directions.length > 1) {
-                  for(var x in directions)
-                      $(list).append($("<option />").val(directions[x].id).text(directions[x].name));    
+                  if (directions.length > 1) {
+                      for (var x in directions)
+                          $(list).append($("<option />").val(directions[x].id).text(directions[x].name));
                   }
                   else {
-                      $(list).append($("<option />").val(directions.id).text(directions.name));    
+                      $(list).append($("<option />").val(directions.id).text(directions.name));
                   }
-                  
+
                   $(list).removeAttr('disabled');
                   $(list).val('0');
+                  $("#message").text('');
               },
               error: function () {
+                  $("#message").text('TheRide is currently having issues with real-time arrivals. We are working on fixing the issue. Thank you for your patience.');
               }
           }
         );
