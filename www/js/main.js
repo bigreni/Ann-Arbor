@@ -54,8 +54,8 @@
 
     function loadInterstitial() {
         if ((/(android|windows phone)/i.test(navigator.userAgent))) {
-            //AdMob.prepareInterstitial({ adId: admobid.interstitial, isTesting: false, autoShow: true });
-            document.getElementById("screen").style.display = 'none';     
+            AdMob.prepareInterstitial({ adId: admobid.interstitial, isTesting: false, autoShow: true });
+            //document.getElementById("screen").style.display = 'none';     
         } else if ((/(ipad|iphone|ipod)/i.test(navigator.userAgent))) {
             AdMob.prepareInterstitial({ adId: admobid.interstitial, isTesting: false, autoShow: true });
             //document.getElementById("screen").style.display = 'none';     
@@ -70,12 +70,12 @@
         $('#simplemenu').sidr();
         $("span").remove();
         $(".dropList").select2();
-        //initApp();
-        //askRating();
+        initApp();
+        askRating();
         //window.ga.startTrackerWithId('UA-88579601-9', 1, function(msg) {
         //    window.ga.trackView('Home');
         //});
-        document.getElementById('screen').style.display = 'none';     
+        //document.getElementById('screen').style.display = 'none';     
     }
 
    function notFirstUse()
