@@ -21,67 +21,34 @@
 }
 
 body {
-	width: 100%;
-	height: 100%;
-	margin: 0 0 70px 0;
-	padding: 0 0 70px 0;
-	overflow: auto;
-    background-color: #e3eaf4;
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-color:#E4E4E4;
+    background-image:linear-gradient(to bottom, #A7A7A7 0%, #E4E4E4 51%);
+    font-family: system-ui, -apple-system, -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+    font-size:12px;
+    height:100vh;
+    margin:0px;
+    padding:0px;
+    /* Padding to avoid the "unsafe" areas behind notches in the screen */
+    padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
+    text-transform:uppercase;
+    width:100%;
 }
 
-div#fullpage {
-	width: 100%;
-	height: 100%;
-	margin: 0;
-	padding: 0;
-}
-
-a.langOption{
-    text-decoration: none;
-}
-
-a:link
-{
-    color: white;
-    text-decoration: none;
-}
-
-/* visited link */
-a:visited
-{
-    color: white;
-}
-
-/* mouse over link */
-a:hover
-{
-    color: white;
-}
-
-/* selected link */
-a:active
-{
-    color: white;
-} 
-
-h4.selectLanguage {
-    margin: 0 0 10px 0;
-    text-decoration: none;
-    text-shadow: none;
-    padding: 5px 0 5px 0;
-    background-color: #5c89c9;
-    color: Black;
-}
-
-
-
-h3 {
-margin: 0;
-}
-
-ul {
-    list-style: none;
-    padding: 0 10px 0 10px;
+/* Portrait layout (default) */
+.app {
+    background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
+    position:absolute;             /* position in the center of the screen */
+    left:50%;
+    top:50%;
+    height:50px;                   /* text area height */
+    width:225px;                   /* text area width */
+    text-align:center;
+    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
+    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
+                                   /* offset horizontal: half of text area width */
 }
 
 /* Landscape layout (with min-width) */
@@ -103,108 +70,41 @@ h1 {
     text-align:center;
 }
 
+.event {
+    border-radius:4px;
+    color:#FFFFFF;
+    font-size:12px;
+    margin:0px 30px;
+    padding:2px 0px;
+}
+
+.event.listening {
+    background-color:#333333;
+    display:block;
+}
+
+.event.received {
+    background-color:#4B946A;
+    display:none;
+}
+
+#deviceready.ready .event.listening { display: none; }
+#deviceready.ready .event.received { display: block; }
 
 @keyframes fade {
     from { opacity: 1.0; }
     50% { opacity: 0.4; }
     to { opacity: 1.0; }
 }
- 
-@-webkit-keyframes fade {
-    from { opacity: 1.0; }
-    50% { opacity: 0.4; }
-    to { opacity: 1.0; }
-}
- 
+
 .blink {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
 
 
-.hidden { display: none !important; visibility: hidden; }
-
-h2 { text-shadow: 1px 1px 0px #000; }
-
-  p, h2, h3 { orphans: 3; widows: 3; }
-  h2, h3 { page-break-after: avoid; }
-
-h1, h2
-{
-	margin-left: auto; margin-right: auto;
-	text-align: center;
-	color: #438ac5;
-   	text-shadow: 1px 1px 1px #000;
+@media screen and (prefers-color-scheme: dark) {
+    body {
+        background-image:linear-gradient(to bottom, #585858 0%, #1B1B1B 51%);
+    }
 }
-
-h4, h5{
-    color: #008A5F;
-}
-
-select
-{
-	width:100%;
-	background-color: #CCC;
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	border-radius: 10px;
-	border: none;
-    text-align: left;
-}
-
-option.displayNone
-{
-	display:none;
-}
-
-select.ui-select div.ui-btn
-{
-    width:90vh;
-	background-color: #CCC;
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	border-radius: 10px;
-	border: none;
-    text-align: left;
-    font-size: medium;
-	margin-bottom : 10px;
-}
-/*select#MainMobileContent_stopList
-{
-    -webkit-appearance: none;
-    font-size: 10px;
-}*/
-
-ul.realtime-results-mappingoptions{
-    display: none;
-}
-
-dd
-{
-    margin: 0 1vw 0 1vw;
-}
-
-#refresh{
-    display: none;
-}
-
-	.realtime-results-arrival {
-    color: #008A5F;
-	margin: 10px;
-	}
-
-		.realtime-results-arrival dt {
-
-			font-size: 1.2em;
-		}
-
-		.realtime-results-arrival dd {
-
-			padding: 0 !important;
-			margin: 0 !important;
-		}
-
-		.realtime-results-upcoming {
-
-			font-size: 18px !important;
-		}
