@@ -195,7 +195,7 @@ function loadArrivals() {
                   if (output == null || output.length == 0 || output['bustime-response'].error != null) {
                       //$(outputContainer).html('').hide(); // reset output container's html
                       document.getElementById('btnSave').style.visibility = "hidden";
-                      results = results.concat('<p>' + output['bustime-response'].error.msg + '</p>');
+                      results = results.concat('<p>' + output['bustime-response'].error[0].msg + '</p>');
                   }
                   else {
                       var predictions = output['bustime-response'].prd;

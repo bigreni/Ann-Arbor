@@ -46,7 +46,7 @@ function loadFaveArrivals(route,direction,stop)
               dataType: "json",
               success: function (output) {
                   if (output == null || output.length == 0 || output['bustime-response'].error != null) {
-                      results = results.concat('<p>' + output['bustime-response'].error.msg + '</p>');
+                      results = results.concat('<p>' + output['bustime-response'].error[0].msg + '</p>');
                   }
                   else {
                       var predictions = output['bustime-response'].prd;
