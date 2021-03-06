@@ -53,10 +53,10 @@
 		<edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/application">
             <application android:usesCleartextTraffic="true" />
     </edit-config>
-        <icon src="res/icon/android/Icon-36.png" density="ldpi" />
-        <icon src="res/icon/android/Icon-48.png" density="mdpi" />
-        <icon src="res/icon/android/Icon-72.png" density="hdpi" />
-        <icon src="res/icon/android/Icon-96.png" density="xhdpi" />
+        <icon src="res/icon/android/Icon-36.png" qualifier="ldpi" />
+        <icon src="res/icon/android/Icon-48.png" qualifier="mdpi" />
+        <icon src="res/icon/android/Icon-72.png" qualifier="hdpi" />
+        <icon src="res/icon/android/Icon-96.png" qualifier="xhdpi" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
