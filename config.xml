@@ -57,5 +57,15 @@
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
+	    <icon height="57" src="res/icon/ios/Icon57.png" width="57" />
+		<icon height="72" src="res/icon/ios/Icon72.png" width="72" />
+		<icon height="114" src="res/icon/ios/Icon114.png" width="114" />
+		<icon height="144" src="res/icon/ios/Icon144.png" width="144" />
+		<icon height="120" src="res/icon/ios/Icon120.png" width="120" />
+		<icon height="76" src="res/icon/ios/Icon76.png" width="76" />
+		<icon height="152" src="res/icon/ios/Icon152.png" width="152" />
+		<icon height="50" src="res/icon/ios/Icon50.png" width="50" />
+		<icon height="40" src="res/icon/ios/Icon40.png" width="40" />
+		<icon height="100" src="res/icon/ios/Icon100.png" width="100" />	
     </platform>
 </widget>
