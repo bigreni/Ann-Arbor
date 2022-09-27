@@ -45,8 +45,8 @@
 <body>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript">
-        document.write('<script type="text/javascript" src="https://s3.us-east-2.amazonaws.com/bigreni.com/js/annarbor/main.js?cb=' +cachebuster+'"></scr' + 'ipt>');
-        //document.write('<script type="text/javascript" src="js/main.js?cb=' +cachebuster+'"></scr' + 'ipt>');
+        // document.write('<script type="text/javascript" src="https://s3.us-east-2.amazonaws.com/bigreni.com/js/annarbor/main.js?cb=' +cachebuster+'"></scr' + 'ipt>');
+        document.write('<script type="text/javascript" src="js/main.js?cb=' +cachebuster+'"></scr' + 'ipt>');
     </script>	
     <div id="screen" class="splashscreen" style="display: none"></div>
         <script>
@@ -56,7 +56,7 @@
                 onLoad();
                 //document.getElementById("screen").style.display = 'none';
             };
-            document.getElementById("screen").innerHTML = 'Loading...';
+            
             document.getElementById("screen").style.display = 'block';
         </script> 
     <div id="fullpage" data-role="page">
@@ -64,12 +64,6 @@
                  <h3>
                      <!--<a id="simplemenu" href="#sidr" style="font-size: xx-large; background-color: #9ab5de; padding: 5px">&#9776;</a>-->
                TheRide Arrivals</h3>
-            <!--<div id="sidr">
-              <ul>
-                <li><a href="index.html" >Arrivals</a></li>
-                <li><a href="javascript:loadFaves();" >Favorites</a></li>
-              </ul>
-            </div>-->
             <br>
             <div style="margin: 0 1vw 0 1vw;">
  					<div>
@@ -144,6 +138,7 @@
 </div>
 
         <script type='text/javascript' src="js/bootstrap.min.js"></script>
-</div>
+
+</div>
 </body>
 </html>

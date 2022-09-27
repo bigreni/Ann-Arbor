@@ -14,7 +14,8 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "cordova-admobsdk": "^8.13.0",
-    "cordova-android": "^10.1.2"
+    "cordova-android": "^10.1.2",
+    "cordova-plugin-wkwebview-file-xhr": "^3.1.0"
   },
   "cordova": {
     "plugins": {
@@ -23,7 +24,8 @@
         "ADMOB_ANDROID_APP_ID": "ca-app-pub-9249695405712287~4833190244",
         "ADMOB_IOS_APP_ID": "ca-app-pub-9249695405712287~8580863569"
       },
-      "cordova-admobsdk": {}
+      "cordova-admobsdk": {},
+      "cordova-plugin-wkwebview-file-xhr": {}
     },
     "platforms": [
       "android"
