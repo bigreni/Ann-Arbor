@@ -26,14 +26,11 @@
       "GPS_REQUIRED": "true",
       "PACKAGE_NAME": "com.annarbor.free"
     },
-    "cordova-plugin-whitelist": {
+    "cordova-admobsdk": {
       "PACKAGE_NAME": "com.annarbor.free"
     }
   },
   "dependent_plugins": {
-    "cordova-admobsdk": {
-      "PACKAGE_NAME": "com.annarbor.free"
-    },
     "cordova-plugin-extension": {
       "PACKAGE_NAME": "com.annarbor.free"
     },

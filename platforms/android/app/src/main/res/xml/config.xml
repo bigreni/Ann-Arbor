@@ -19,10 +19,6 @@
     <feature name="Geolocation">
         <param name="android-package" value="org.apache.cordova.geolocation.Geolocation" />
     </feature>
-    <feature name="Whitelist">
-        <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
-        <param name="onload" value="true" />
-    </feature>
     <name>TheRide Bus Tracker</name>
     <description>
         Bus App.
@@ -32,13 +28,11 @@
     </author>
     <content src="index.html" />
     <cdv:plugin name="cordova-plugin-admobpro" source="npm">
-        <variable name="ADMOB_APP_ID" value="pub-9249695405712287" />
     </cdv:plugin>
+    <cdv:plugin name="cordova-plugin-wkwebview-file-xhr" source="npm" />
     <cdv:plugin name="cordova-plugin-statusbar" source="npm" />
     <cdv:plugin name="cordova-plugin-device" source="npm" />
-    <cdv:plugin name="cordova-plugin-device-motion" source="npm" />
     <cdv:plugin name="cordova-plugin-geolocation" source="npm" />
-    <cdv:plugin name="cordova-plugin-whitelist" source="npm" />
     <cdv:plugin name="cordova-plugin-dialogs" source="npm" />
     <cdv:plugin name="cordova-plugin-apprate" source="npm" />
     <allow-navigation href="http://*/*" />
@@ -52,6 +46,8 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <icon src="icon.png" />
+    <preference default="ca-app-pub-9249695405712287~2552376378" name="ADMOB_ANDROID_APP_ID" />
+    <preference default="20.4.0" name="PLAY_SERVICES_VERSION" />
     <allow-intent href="market:*" />
     <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/application">
         <application android:usesCleartextTraffic="true" />
@@ -73,7 +69,8 @@
     <preference name="DisallowOverscroll" value="true" />
     <preference name="disable-cursor" value="false" />
     <preference name="android-minSdkVersion" value="24" />
-    <preference name="android-targetSdkVersion" value="29" />
+    <preference name="android-targetSdkVersion" value="30" />
     <preference name="android-installLocation" value="auto" />
     <preference name="StatusBarOverlaysWebView" value="false" />
+    <preference name="AndroidInsecureFileModeEnabled" value="true" />
 </widget>

@@ -7,10 +7,9 @@
     <author email="dev@cordova.apache.org" href="http://cordova.io">
         Apache Cordova Team
     </author>
-    <content src="index.html" />
+   <content src="index.html" />
 	<preference name="android-build-tool" value="gradle" /> 
     <cdv:plugin name="cordova-plugin-admobpro" source="npm" >
-        <variable name="ADMOB_APP_ID" value="pub-9249695405712287"></variable>
     </cdv:plugin>
     <preference name="permissions" value="none" />
     <preference name="orientation" value="portrait" />
@@ -27,14 +26,14 @@
     <preference name="DisallowOverscroll" value ="true" />
     <preference name="disable-cursor" value="false" />
     <preference name="android-minSdkVersion" value="24" />
-    <preference name="android-targetSdkVersion" value="29" />
+    <preference name="android-targetSdkVersion" value="30" />
     <preference name="android-installLocation" value="auto" />
     <preference name="StatusBarOverlaysWebView" value="false" />
+    <preference name="AndroidInsecureFileModeEnabled" value="true" />
+    <cdv:plugin name="cordova-plugin-wkwebview-file-xhr" source="npm"/>
     <cdv:plugin name="cordova-plugin-statusbar" source="npm"/>
     <cdv:plugin name="cordova-plugin-device" source="npm" />
-    <cdv:plugin name="cordova-plugin-device-motion" source="npm"/>
     <cdv:plugin name="cordova-plugin-geolocation" source="npm"/>
-    <cdv:plugin name="cordova-plugin-whitelist" source="npm"/>
     <cdv:plugin name="cordova-plugin-dialogs" source="npm"/>
     <cdv:plugin name="cordova-plugin-apprate" source="npm"/>
     <allow-navigation href="http://*/*" />
@@ -49,23 +48,33 @@
     <allow-intent href="geo:*" />
 	<icon src="icon.png" />
     <platform name="android">
+	<preference name="ADMOB_ANDROID_APP_ID" default="ca-app-pub-9249695405712287~2552376378"/>
+	<preference name="PLAY_SERVICES_VERSION" default="20.4.0"/>
         <allow-intent href="market:*" />
 		<edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/application">
             <application android:usesCleartextTraffic="true" />
     </edit-config>
     </platform>
     <platform name="ios">
+        <edit-config target="NSLocationWhenInUseUsageDescription" file="*-Info.plist" mode="merge">
+            <string>Need location access to find things nearby</string>
+        </edit-config>
+        <edit-config file="*-Info.plist" mode="merge" target="NSUserTrackingUsageDescription">
+            <string>Used to remember and personalize your experience</string>
+        </edit-config>
+        <preference name="ADMOB_IOS_APP_ID" default="ca-app-pub-9249695405712287~2882467294"/>
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
-		<icon height="40" src="res/icon/ios/Icon40.png" width="40" />
-		<icon height="50" src="res/icon/ios/Icon50.png" width="50" />
 	    <icon height="57" src="res/icon/ios/Icon57.png" width="57" />
 		<icon height="72" src="res/icon/ios/Icon72.png" width="72" />
-		<icon height="76" src="res/icon/ios/Icon76.png" width="76" />
-		<icon height="100" src="res/icon/ios/Icon100.png" width="100" />	
 		<icon height="114" src="res/icon/ios/Icon114.png" width="114" />
-		<icon height="120" src="res/icon/ios/Icon120.png" width="120" />
 		<icon height="144" src="res/icon/ios/Icon144.png" width="144" />
+		<icon height="120" src="res/icon/ios/Icon120.png" width="120" />
+		<icon height="76" src="res/icon/ios/Icon76.png" width="76" />
 		<icon height="152" src="res/icon/ios/Icon152.png" width="152" />
+		<icon height="50" src="res/icon/ios/Icon50.png" width="50" />
+		<icon height="40" src="res/icon/ios/Icon40.png" width="40" />
+		<icon height="100" src="res/icon/ios/Icon100.png" width="100" />	
+		<icon height="167" src="res/icon/ios/Icon167.png" width="167" />	
     </platform>
 </widget>
