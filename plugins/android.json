@@ -7,9 +7,6 @@
     "files": {}
   },
   "installed_plugins": {
-    "cordova-admobsdk": {
-      "PACKAGE_NAME": "com.annarbor.free"
-    },
     "cordova-plugin-admobpro": {
       "ADMOB_ANDROID_APP_ID": "ca-app-pub-9249695405712287~4833190244",
       "PLAY_SERVICES_VERSION": "20.4.0",
@@ -30,6 +27,9 @@
       "PACKAGE_NAME": "com.annarbor.free"
     },
     "cordova-plugin-wkwebview-file-xhr": {
+      "PACKAGE_NAME": "com.annarbor.free"
+    },
+    "cordova-admobsdk": {
       "PACKAGE_NAME": "com.annarbor.free"
     }
   },
