@@ -29,8 +29,8 @@
       "cordova-admobsdk": {}
     },
     "platforms": [
-      "android",
-      "ios"
+      "ios",
+      "android"
     ]
   },
   "dependencies": {

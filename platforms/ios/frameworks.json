@@ -1,0 +1,7 @@
+{
+    "CFNetwork.framework": 1,
+    "AudioToolbox.framework": 1,
+    "StoreKit.framework": 1,
+    "CoreLocation.framework": 1,
+    "WebKit.framework": 1
+}
