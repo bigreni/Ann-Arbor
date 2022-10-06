@@ -37,6 +37,9 @@
 		BFFE6C5912B2435080384356 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9BCE08AB6424A9CAFAC2B03 /* CoreLocation.framework */; };
 		F8603CD9FBB341008492C27A /* CDVWKWebViewFileXhr.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B8772ECAD8E4CAF9F750E80 /* CDVWKWebViewFileXhr.m */; };
 		D0E6A0EC894C4B469AE83EF1 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2594EF0279A9476083B64D57 /* WebKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		2BB2236990A740DD9D87E198 /* IdfaPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = A007086E7A23484885760D51 /* IdfaPlugin.m */; };
+		9BB6F3AAF3A04C3EA79409B6 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DB818D69A734232875D18AC /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		03354FDCDC934E2FB793ECA9 /* AppTrackingTransparency.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8B4EDAB67AC42BD8063A695 /* AppTrackingTransparency.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,6 +121,10 @@
 		5B8772ECAD8E4CAF9F750E80 /* CDVWKWebViewFileXhr.m */ = {isa = PBXFileReference; name = "CDVWKWebViewFileXhr.m"; path = "cordova-plugin-wkwebview-file-xhr/CDVWKWebViewFileXhr.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
 		CC56E51AD1344F449BECAB56 /* CDVWKWebViewFileXhr.h */ = {isa = PBXFileReference; name = "CDVWKWebViewFileXhr.h"; path = "cordova-plugin-wkwebview-file-xhr/CDVWKWebViewFileXhr.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 		2594EF0279A9476083B64D57 /* WebKit.framework */ = {isa = PBXFileReference; name = "WebKit.framework"; path = "System/Library/Frameworks/WebKit.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		A007086E7A23484885760D51 /* IdfaPlugin.m */ = {isa = PBXFileReference; name = "IdfaPlugin.m"; path = "cordova-plugin-idfa/IdfaPlugin.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		E0836FD4472C4600834C517C /* IdfaPlugin.h */ = {isa = PBXFileReference; name = "IdfaPlugin.h"; path = "cordova-plugin-idfa/IdfaPlugin.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		2DB818D69A734232875D18AC /* AdSupport.framework */ = {isa = PBXFileReference; name = "AdSupport.framework"; path = "System/Library/Frameworks/AdSupport.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		A8B4EDAB67AC42BD8063A695 /* AppTrackingTransparency.framework */ = {isa = PBXFileReference; name = "AppTrackingTransparency.framework"; path = "System/Library/Frameworks/AppTrackingTransparency.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +146,8 @@
 				4950226252D148C1835377F7 /* StoreKit.framework in Frameworks */,
 				BFFE6C5912B2435080384356 /* CoreLocation.framework in Frameworks */,
 				D0E6A0EC894C4B469AE83EF1 /* WebKit.framework in Frameworks */,
+				9BB6F3AAF3A04C3EA79409B6 /* AdSupport.framework in Frameworks */,
+				03354FDCDC934E2FB793ECA9 /* AppTrackingTransparency.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,6 +232,8 @@
 				0B37759E68FA46C7917FA889 /* StoreKit.framework */,
 				D9BCE08AB6424A9CAFAC2B03 /* CoreLocation.framework */,
 				2594EF0279A9476083B64D57 /* WebKit.framework */,
+				2DB818D69A734232875D18AC /* AdSupport.framework */,
+				A8B4EDAB67AC42BD8063A695 /* AppTrackingTransparency.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -269,6 +280,8 @@
 				FCB3B2DAE65144F4AAC4DCC5 /* CDVLocation.h */,
 				5B8772ECAD8E4CAF9F750E80 /* CDVWKWebViewFileXhr.m */,
 				CC56E51AD1344F449BECAB56 /* CDVWKWebViewFileXhr.h */,
+				A007086E7A23484885760D51 /* IdfaPlugin.m */,
+				E0836FD4472C4600834C517C /* IdfaPlugin.h */,
 			);
 			name = Plugins;
 			path = "TheRide Bus Tracker/Plugins";
@@ -407,6 +420,7 @@
 				BEDDD84E39EA4F12897BC558 /* CDVDevice.m in Sources */,
 				25996985D935455E94C11E26 /* CDVLocation.m in Sources */,
 				F8603CD9FBB341008492C27A /* CDVWKWebViewFileXhr.m in Sources */,
+				2BB2236990A740DD9D87E198 /* IdfaPlugin.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

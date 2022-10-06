@@ -30,6 +30,9 @@
     },
     "cordova-plugin-wkwebview-file-xhr": {
       "PACKAGE_NAME": "com.annarbor.free"
+    },
+    "cordova-plugin-idfa": {
+      "PACKAGE_NAME": "com.annarbor.free"
     }
   },
   "dependent_plugins": {

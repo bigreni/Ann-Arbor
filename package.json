@@ -16,7 +16,9 @@
     "cordova-admobsdk": "^8.13.0",
     "cordova-android": "^10.1.2",
     "cordova-ios": "^6.2.0",
-    "cordova-plugin-wkwebview-file-xhr": "^3.1.0"
+    "cordova-plugin-idfa": "^2.1.0",
+    "cordova-plugin-wkwebview-file-xhr": "^3.1.0",
+    "cordova-support-android-plugin": "~2.0.4"
   },
   "cordova": {
     "plugins": {
@@ -26,7 +28,10 @@
         "ADMOB_IOS_APP_ID": "ca-app-pub-9249695405712287~8580863569"
       },
       "cordova-plugin-wkwebview-file-xhr": {},
-      "cordova-admobsdk": {}
+      "cordova-admobsdk": {},
+      "cordova-plugin-idfa": {
+        "ANDROID_PLAY_ADID_VERSION": "17.0.+"
+      }
     },
     "platforms": [
       "ios",
