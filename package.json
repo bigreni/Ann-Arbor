@@ -17,6 +17,7 @@
     "cordova-android": "^10.1.2",
     "cordova-ios": "^6.2.0",
     "cordova-plugin-idfa": "^2.1.0",
+    "cordova-plugin-inappbrowser": "^5.0.0",
     "cordova-plugin-wkwebview-file-xhr": "^3.1.0",
     "cordova-support-android-plugin": "~2.0.4"
   },
@@ -31,7 +32,8 @@
       "cordova-admobsdk": {},
       "cordova-plugin-idfa": {
         "ANDROID_PLAY_ADID_VERSION": "17.0.+"
-      }
+      },
+      "cordova-plugin-inappbrowser": {}
     },
     "platforms": [
       "ios",

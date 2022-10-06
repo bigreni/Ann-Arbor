@@ -35,6 +35,9 @@
     "cordova-plugin-idfa": {
       "ANDROID_PLAY_ADID_VERSION": "17.0.+",
       "PACKAGE_NAME": "com.annarbor.free"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "com.annarbor.free"
     }
   },
   "dependent_plugins": {

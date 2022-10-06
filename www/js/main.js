@@ -106,8 +106,11 @@
 
 function askRating()
 {
-  AppRate.preferences = {
-  openStoreInApp: true,
+cordova.plugins.AppRate.setPreferences = {
+    reviewType: {
+        ios: 'AppStoreReview',
+        android: 'InAppBrowser'
+        },
   useLanguage:  'en',
   usesUntilPrompt: 10,
   promptAgainForEachNewVersion: true,
