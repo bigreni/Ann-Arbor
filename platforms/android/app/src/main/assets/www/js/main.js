@@ -74,6 +74,7 @@
     {
         $(".dropList").select2();
         initApp();
+        checkPermissions();
         askRating();
         //document.getElementById('screen').style.display = 'none';     
     }
@@ -84,10 +85,32 @@
         document.getElementById('screen').style.display = 'none';     
     }
 
+    function checkPermissions(){
+        const idfaPlugin = cordova.plugins.idfa;
+    
+        idfaPlugin.getInfo()
+            .then(info => {
+                if (!info.trackingLimited) {
+                    return info.idfa || info.aaid;
+                } else if (info.trackingPermission === idfaPlugin.TRACKING_PERMISSION_NOT_DETERMINED) {
+                    return idfaPlugin.requestPermission().then(result => {
+                        if (result === idfaPlugin.TRACKING_PERMISSION_AUTHORIZED) {
+                            return idfaPlugin.getInfo().then(info => {
+                                return info.idfa || info.aaid;
+                            });
+                        }
+                    });
+                }
+            });
+    }
+
 function askRating()
 {
-  AppRate.preferences = {
-  openStoreInApp: true,
+cordova.plugins.AppRate.setPreferences = {
+    reviewType: {
+        ios: 'AppStoreReview',
+        android: 'InAppBrowser'
+        },
   useLanguage:  'en',
   usesUntilPrompt: 10,
   promptAgainForEachNewVersion: true,
@@ -110,9 +133,9 @@ function loadDirections() {
     $.ajax(
           {
               type: "GET",
-              url: "https://www.theride.org/DesktopModules/AATA.EndPoint/Proxy.ashx",
+              url: "https://www.theride.org/api/ServiceData",
               data: "method=routedirs&routeid=" + $("#routeSelect").val(),
-              contentType: "application/json;	charset=utf-8",
+            //   contentType: "application/json;	charset=utf-8",
               dataType: "json",
               success: function (msg) {
                   if (msg == null || msg.length == 0) {
@@ -153,9 +176,9 @@ function loadStops() {
     $.ajax(
           {
               type: "GET",
-              url: "https://www.theride.org/DesktopModules/AATA.EndPoint/Proxy.ashx",
+              url: "https://www.theride.org/api/ServiceData",
               data: "d=" + $("#routeDirectionSelect").val().replace('+', '%2b').split(' ').join('+') + "&method=getstopsbyrouteanddirection&routeid=" + $("#routeSelect").val(),
-              contentType: "application/json;	charset=utf-8",
+            //   contentType: "application/json;	charset=utf-8",
               dataType: "json",
               success: function (msg) {
                   if (msg == null || msg.length == 0) {
@@ -186,22 +209,22 @@ function loadArrivals() {
     $.ajax(
           {
               type: "GET",
-              url: "https://www.theride.org/DesktopModules/AATA.EndPoint/Proxy.ashx",
+              url: "https://www.theride.org/api/ServiceData",
               data: "method=getpredictionsfromxml&stpid=" + $("#routeStopSelect").val(),
-              contentType: "application/json;	charset=utf-8",
+            //   contentType: "application/json;	charset=utf-8",
               dataType: "json",
               success: function (output) {
                   if (output == null || output.length == 0 || output['bustime-response'].error != null) {
                       //$(outputContainer).html('').hide(); // reset output container's html
                       document.getElementById('btnSave').style.visibility = "hidden";
-                      results = results.concat('<p>' + output['bustime-response'].error.msg + '</p>');
+                      results = results.concat('<p>' + output['bustime-response'].error[0].msg + '</p>');
                   }
                   else {
                       var predictions = output['bustime-response'].prd;
                       if (predictions == null) {
                           results = results.concat("<p> Oops. Something went wrong. Please check if there is a new app version.</p>");
                       }
-                      else if (predictions.length > 1) {
+                      else if (predictions.length > 0) {
                           for (var x in predictions) {
                               if (predictions[x].rt == $("#routeSelect").val()) {
                                   var arrivalTime = "";
@@ -253,10 +276,12 @@ function loadFaves()
 function showAd()
 {
 document.getElementById("screen").style.display = 'block';     
-    AdMob.isInterstitialReady(function(isready){
+if ((/(ipad|iphone|ipod|android|windows phone)/i.test(navigator.userAgent))){
+        AdMob.isInterstitialReady(function(isready){
         if(isready) 
             AdMob.showInterstitial();
-    });
+        });
+   }
 document.getElementById("screen").style.display = 'none'; 
 }
 
