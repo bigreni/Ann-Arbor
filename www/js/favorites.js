@@ -52,7 +52,7 @@ function loadFaveArrivals(route,direction,stop)
                       if (predictions == null) {
                           results = results.concat("<p> Oops. Something went wrong. Please check if there is a new app version.</p>");
                       }
-                      else if (predictions.length > 1) {
+                      else if (predictions.length >= 1) {
                           for (var x in predictions) {
                               if (predictions[x].rt == route) {
                                   var arrivalTime = "";

@@ -57,14 +57,6 @@
     "is_top_level": true,
     "variables": {}
   },
-  "cordova-plugin-purchase": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-purchase"
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
   "cordova-plugin-wkwebview-file-xhr": {
     "source": {
       "type": "registry",
@@ -92,5 +84,13 @@
       "APP_ID_IOS": "ca-app-pub-9249695405712287~8580863569",
       "PLAY_SERVICES_VERSION": "23.0.0"
     }
+  },
+  "cordova-plugin-purchase": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-purchase"
+    },
+    "is_top_level": true,
+    "variables": {}
   }
 }
