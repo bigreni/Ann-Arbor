@@ -88,4 +88,6 @@
     <preference name="StatusBarOverlaysWebView" value="false" />
     <preference name="AndroidInsecureFileModeEnabled" value="true" />
     <preference name="InterceptRemoteRequests" value="all" />
+    <preference name="AndroidWindowSplashScreenAnimatedIcon" value="res/screen/android/screen-all.png" />
+    <preference name="AndroidWindowSplashScreenAnimationDuration" value="1" />
 </widget>
