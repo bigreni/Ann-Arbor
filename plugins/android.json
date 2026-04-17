@@ -7,11 +7,6 @@
     "files": {}
   },
   "installed_plugins": {
-    "admob-plus-cordova": {
-      "APP_ID_ANDROID": "ca-app-pub-9249695405712287~4833190244",
-      "PLAY_SERVICES_VERSION": "23.0.0",
-      "PACKAGE_NAME": "com.annarbor.free"
-    },
     "cordova-plugin-apprate": {
       "PLAY_REVIEW_VERSION": "2.+",
       "PACKAGE_NAME": "com.annarbor.free"
@@ -37,6 +32,11 @@
       "PACKAGE_NAME": "com.annarbor.free"
     },
     "cordova-plugin-wkwebview-file-xhr": {
+      "PACKAGE_NAME": "com.annarbor.free"
+    },
+    "admob-plus-cordova": {
+      "APP_ID_ANDROID": "ca-app-pub-7927705300690831~6164629882",
+      "PLAY_SERVICES_VERSION": "23.2.0",
       "PACKAGE_NAME": "com.annarbor.free"
     }
   },

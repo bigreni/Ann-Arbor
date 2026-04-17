@@ -16,8 +16,8 @@
               "oldAttrib": {
                 "android:hardwareAccelerated": "true",
                 "android:name": "com.google.android.gms.permission.AD_ID",
-                "android:versionCode": "40000",
-                "android:versionName": "4.0",
+                "android:versionCode": "50000",
+                "android:versionName": "5.0",
                 "xmlns:android": "http://schemas.android.com/apk/res/android"
               }
             },
@@ -29,19 +29,32 @@
               "oldAttrib": {
                 "android:hardwareAccelerated": "true",
                 "android:name": "com.android.vending.BILLING",
-                "android:versionCode": "40000",
-                "android:versionName": "4.0",
+                "android:versionCode": "50000",
+                "android:versionName": "5.0",
                 "xmlns:android": "http://schemas.android.com/apk/res/android"
               }
             }
           ],
           "/manifest/application": [
             {
+              "xml": "<application android:usesCleartextTraffic=\"true\" />",
+              "count": 1,
+              "mode": "merge",
+              "id": "config.xml",
+              "oldAttrib": {
+                "android:hardwareAccelerated": "true",
+                "android:icon": "@mipmap/ic_launcher",
+                "android:label": "@string/app_name",
+                "android:supportsRtl": "true",
+                "android:usesCleartextTraffic": "true"
+              }
+            },
+            {
               "xml": "<activity android:configChanges=\"keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize\" android:excludeFromRecents=\"true\" android:name=\"com.google.android.gms.ads.AdActivity\" android:noHistory=\"true\" />",
               "count": 1
             },
             {
-              "xml": "<meta-data android:name=\"com.google.android.gms.ads.APPLICATION_ID\" android:value=\"ca-app-pub-9249695405712287~4833190244\" />",
+              "xml": "<meta-data android:name=\"com.google.android.gms.ads.APPLICATION_ID\" android:value=\"ca-app-pub-7927705300690831~6164629882\" />",
               "count": 1
             },
             {
@@ -59,19 +72,6 @@
             {
               "xml": "<meta-data android:name=\"com.google.android.gms.ads.flag.INTEGRATION_MANAGER\" android:value=\"webview\" />",
               "count": 1
-            },
-            {
-              "xml": "<application android:usesCleartextTraffic=\"true\" />",
-              "count": 1,
-              "mode": "merge",
-              "id": "config.xml",
-              "oldAttrib": {
-                "android:hardwareAccelerated": "true",
-                "android:icon": "@mipmap/ic_launcher",
-                "android:label": "@string/app_name",
-                "android:supportsRtl": "true",
-                "android:usesCleartextTraffic": "true"
-              }
             }
           ],
           "/*": [
@@ -106,10 +106,6 @@
         "parents": {
           "/*": [
             {
-              "xml": "<feature name=\"AdMob\"><param name=\"android-package\" value=\"admob.plus.cordova.AdMob\" /></feature>",
-              "count": 1
-            },
-            {
               "xml": "<feature name=\"Notification\"><param name=\"android-package\" value=\"org.apache.cordova.dialogs.Notification\" /></feature>",
               "count": 1
             },
@@ -140,6 +136,10 @@
             {
               "xml": "<feature name=\"InAppBillingPlugin\"><param name=\"android-package\" value=\"cc.fovea.PurchasePlugin\" /></feature>",
               "count": 1
+            },
+            {
+              "xml": "<feature name=\"AdMob\"><param name=\"android-package\" value=\"admob.plus.cordova.AdMob\" /></feature>",
+              "count": 1
             }
           ]
         }
@@ -147,11 +147,6 @@
     }
   },
   "installed_plugins": {
-    "admob-plus-cordova": {
-      "APP_ID_ANDROID": "ca-app-pub-9249695405712287~4833190244",
-      "PLAY_SERVICES_VERSION": "23.0.0",
-      "PACKAGE_NAME": "com.annarbor.free"
-    },
     "cordova-plugin-dialogs": {
       "PACKAGE_NAME": "com.annarbor.free"
     },
@@ -184,18 +179,15 @@
     },
     "cordova-plugin-wkwebview-file-xhr": {
       "PACKAGE_NAME": "com.annarbor.free"
+    },
+    "admob-plus-cordova": {
+      "APP_ID_ANDROID": "ca-app-pub-7927705300690831~6164629882",
+      "PLAY_SERVICES_VERSION": "23.2.0",
+      "PACKAGE_NAME": "com.annarbor.free"
     }
   },
   "dependent_plugins": {},
   "modules": [
-    {
-      "id": "admob-plus-cordova.AdMob",
-      "file": "plugins/admob-plus-cordova/www/admob.js",
-      "pluginId": "admob-plus-cordova",
-      "clobbers": [
-        "admob"
-      ]
-    },
     {
       "id": "cordova-plugin-dialogs.notification",
       "file": "plugins/cordova-plugin-dialogs/www/notification.js",
@@ -297,10 +289,17 @@
         "store",
         "CdvPurchase"
       ]
+    },
+    {
+      "id": "admob-plus-cordova.AdMob",
+      "file": "plugins/admob-plus-cordova/www/admob.js",
+      "pluginId": "admob-plus-cordova",
+      "clobbers": [
+        "admob"
+      ]
     }
   ],
   "plugin_metadata": {
-    "admob-plus-cordova": "2.0.0-alpha.18",
     "cordova-plugin-dialogs": "2.0.2",
     "cordova-plugin-nativestorage": "2.3.2",
     "cordova-plugin-apprate": "1.8.0",
@@ -310,6 +309,7 @@
     "cordova-plugin-idfa": "3.0.0",
     "cordova-plugin-inappbrowser": "6.0.0",
     "cordova-plugin-purchase": "13.12.1",
-    "cordova-plugin-wkwebview-file-xhr": "3.1.1"
+    "cordova-plugin-wkwebview-file-xhr": "3.1.1",
+    "admob-plus-cordova": "2.0.0-alpha.19"
   }
 }

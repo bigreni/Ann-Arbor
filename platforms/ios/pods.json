@@ -14,7 +14,7 @@
     "libraries": {
         "Google-Mobile-Ads-SDK": {
             "name": "Google-Mobile-Ads-SDK",
-            "spec": "~> 11.3.0",
+            "spec": "~> 11.6.0",
             "count": 1
         }
     }

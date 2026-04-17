@@ -12,7 +12,8 @@
                 //dev
                 //adUnitId: 'ca-app-pub-3940256099942544/1033173712'
                 //prod
-                adUnitId: 'ca-app-pub-9249695405712287/5288129821'
+                //adUnitId: 'ca-app-pub-9249695405712287/5288129821'
+                adUnitId: 'ca-app-pub-7927705300690831/1713189492'
               });
             }
             else if(/(ipod|iphone|ipad)/i.test(navigator.userAgent) || (navigator.userAgent.includes("Mac") && "ontouchend" in document)) {

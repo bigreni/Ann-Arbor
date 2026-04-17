@@ -66,19 +66,17 @@
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
+		<key>NSAllowsArbitraryLoadsForMedia</key>
+		<true/>
+		<key>NSAllowsArbitraryLoadsInWebContent</key>
+		<true/>
 	</dict>
 	<key>UIInterfaceOrientation</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
 	<key>NSUserTrackingUsageDescription</key>
-	<string>Used to remember and personalize your experience</string>
-	<key>GADApplicationIdentifier</key>
-	<string>ca-app-pub-9249695405712287~8580863569</string>
-	<key>GADDelayAppMeasurementInit</key>
-	<true/>
-	<key>GADIntegrationManager</key>
-	<string>webview</string>
+	<string>This identifier will be used to deliver personalized ads to you.</string>
 	<key>SKAdNetworkItems</key>
 	<array>
 		<dict>
@@ -280,5 +278,11 @@
 	</array>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Need location access to find things nearby</string>
+	<key>GADApplicationIdentifier</key>
+	<string>ca-app-pub-xxx~yyy</string>
+	<key>GADDelayAppMeasurementInit</key>
+	<true/>
+	<key>GADIntegrationManager</key>
+	<string>webview</string>
 </dict>
 </plist>

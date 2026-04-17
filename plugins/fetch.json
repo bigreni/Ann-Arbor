@@ -73,18 +73,6 @@
     "is_top_level": true,
     "variables": {}
   },
-  "admob-plus-cordova": {
-    "source": {
-      "type": "registry",
-      "id": "admob-plus-cordova"
-    },
-    "is_top_level": true,
-    "variables": {
-      "APP_ID_ANDROID": "ca-app-pub-9249695405712287~4833190244",
-      "APP_ID_IOS": "ca-app-pub-9249695405712287~8580863569",
-      "PLAY_SERVICES_VERSION": "23.0.0"
-    }
-  },
   "cordova-plugin-purchase": {
     "source": {
       "type": "registry",
@@ -92,5 +80,15 @@
     },
     "is_top_level": true,
     "variables": {}
+  },
+  "admob-plus-cordova": {
+    "source": {
+      "type": "registry",
+      "id": "admob-plus-cordova"
+    },
+    "is_top_level": true,
+    "variables": {
+      "APP_ID_ANDROID": "ca-app-pub-7927705300690831~6164629882"
+    }
   }
 }

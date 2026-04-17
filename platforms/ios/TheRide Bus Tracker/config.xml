@@ -25,9 +25,6 @@
         <param name="ios-package" value="CDVGestureHandler" />
         <param name="onload" value="true" />
     </feature>
-    <feature name="AdMob">
-        <param name="ios-package" value="AMBPlugin" />
-    </feature>
     <feature name="Notification">
         <param name="ios-package" value="CDVNotification" />
     </feature>
@@ -136,4 +133,7 @@
     <preference name="InterceptRemoteRequests" value="all" />
     <preference name="SwiftVersion" value="5.3" />
     <preference name="deployment-target" value="12.0" />
+    <feature name="AdMob">
+        <param name="ios-package" value="AMBPlugin" />
+    </feature>
 </widget>
