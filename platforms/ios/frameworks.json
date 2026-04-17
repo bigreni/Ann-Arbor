@@ -1,8 +1,8 @@
 {
+    "AdSupport.framework": 1,
     "AppTrackingTransparency.framework": 2,
     "AudioToolbox.framework": 1,
     "StoreKit.framework": 2,
     "CoreLocation.framework": 1,
-    "AdSupport.framework": 1,
     "WebKit.framework": 1
 }

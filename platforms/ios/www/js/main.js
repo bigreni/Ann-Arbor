@@ -1,5 +1,5 @@
     function onLoad() {
-        if ((/(ipad|iphone|ipod|android|windows phone)/i.test(navigator.userAgent))) {
+        if ((/(ipad|iphone|ipod|android|windows phone)/i.test(navigator.userAgent)) || (navigator.userAgent.includes("Mac") && "ontouchend" in document)) {
             document.addEventListener('deviceready', checkFirstUse, false);
         } else {
             notFirstUse();

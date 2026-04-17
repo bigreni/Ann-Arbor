@@ -6,9 +6,12 @@
 <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
 <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
 <script type="text/javascript">
-    var cachebuster = Math.round(new Date().getTime() / 1000);
+  var cachebuster = Math.round(new Date().getTime() / 1000);
+  // document.write('<link rel="stylesheet" type="text/css" href="css/index.css?cb=' +cachebuster+'"></li' + 'nk>');
+  document.write('<link rel="stylesheet" type="text/css" href="https://s3.us-east-2.amazonaws.com/bigreni.com/css/annarbor/index.css?cb=' +cachebuster+'"></li' + 'nk>');
 </script>
-<link rel="stylesheet" type="text/css" href="https://s3.us-east-2.amazonaws.com/bigreni.com/css/annarbor/index.css" />
+
+<!-- <link rel="stylesheet" type="text/css" href="https://s3.us-east-2.amazonaws.com/bigreni.com/css/annarbor/index.css" /> -->
 <!--<link rel="stylesheet" type="text/css" href="css/index.css" />-->
 <!-- Include jQuery Mobile stylesheets -->
 <!--<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">-->
@@ -69,10 +72,9 @@
                                 <option label="3 - Huron River" value="3">3 - Huron River</option>
                                 <option label="4 - Washtenaw" value="4">4 - Washtenaw</option>
                                 <option label="5 - Packard" value="5">5 - Packard</option>
-                                <option label="6 - Ellsworth" value="6">6 - Ellsworth</option>
+                                <option label="6 - Ellsworth" value="6">6 - Ellsworth - State</option>
                                 <option label="22 - Pontiac - Dhu Varren" value="22">22 - Pontiac - Dhu Varren</option>
                                 <option label="23 - Plymouth" value="23">23 - Plymouth</option>
-                                <option label="24 - Eisenhower - Golfside" value="24">24 - Eisenhower - Golfside</option>
                                 <option label="25 - Ann Arbor - Saline Rd" value="25">25 - Ann Arbor - Saline Rd</option>
                                 <option label="26 - Scio Church" value="26">26 - Scio Church</option>
                                 <option label="27 - W Stadium - Oak Valley" value="27">27 - W Stadium - Oak Valley</option>
@@ -93,9 +95,11 @@
                                 <option label="62 - U-M - State" value="62">62 - U-M - State</option>
                                 <option label="63 - U-M - Pontiac" value="63">63 - U-M - Pontiac</option>
                                 <option label="64 - Geddes - E Stadium" value="64">64 - Geddes - E Stadium</option>
-                                <option label="65 - U-M - Downtown - Green" value="65">65 - U-M - Downtown - Green</option>
+                                <option label="65 - U-M - Downtown - Green" value="65">65 - U-M - Plymouth - Greenhills</option>
                                 <option label="66 - Carpenter - Huron Pkwy" value="66">66 - Carpenter - Huron Pkwy</option>
+                                <option label="67 - Eisenhower - Golfside" value="67">67 - Eisenhower - Golfside</option>
                                 <option label="68 - Harris - Ford" value="68">68 - Harris - Ford</option>
+                                <option label="104 - Washtenaw Express" value="104">104 - Washtenaw Express</option>
                             </select>
                		</div>
 				
@@ -111,12 +115,17 @@
     			            <option value="0">- Select Stop -</option>
                     	</select>
     	            </div>
+
                     <h2 style="text-align:center;">
                         <button onclick="saveFavorites();" id="btnSave" style="border:none; background-color: lightgreen; color:black;visibility: hidden;">&#x2764; Add to favorites</button>
                     </h2>
                     <label id="message" style="font-size: large;"></label> 
                   <div class="js-next-bus-results" style="display:none; text-align: center;">
                  </div>
+                <div id="divSubscribe" style="display: none;">
+                    <h4 style="text-align:center;"><button id="btnSubscribe" onclick="proSubscription();" class="premium">Remove Ads</button></h4>
+                </div>
+
         </div>
 </div>
 <div id="footer">

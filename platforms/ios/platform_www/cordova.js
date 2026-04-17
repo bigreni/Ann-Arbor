@@ -19,7 +19,7 @@
  under the License.
 */
 ;(function() {
-var PLATFORM_VERSION_BUILD_LABEL = '7.1.1';
+var PLATFORM_VERSION_BUILD_LABEL = '8.0.1';
 // file: src/scripts/require.js
 var require;
 var define;
@@ -905,7 +905,7 @@ function massageMessageNativeToJs (message) {
             return ret.buffer;
         };
         var base64ToArrayBuffer = function (b64) {
-            return stringToArrayBuffer(atob(b64)); // eslint-disable-line no-undef
+            return stringToArrayBuffer(atob(b64));
         };
         message = base64ToArrayBuffer(message.data);
     }
@@ -969,7 +969,7 @@ iOSExec.nativeCallback = function (callbackId, status, message, keepCallback, de
     var success = status === 0 || status === 1;
     var args = convertMessageToArgsNativeToJs(message);
     Promise.resolve().then(function () {
-        cordova.callbackFromNative(callbackId, success, status, args, keepCallback); // eslint-disable-line
+        cordova.callbackFromNative(callbackId, success, status, args, keepCallback);
     });
 };
 
@@ -1250,6 +1250,10 @@ module.exports = {
         // Attach the splashscreen utility to window.navigator.splashscreen
         // see the file under plugin/ios/launchscreen.js
         require('cordova/modulemapper').clobbers('cordova/plugin/ios/launchscreen', 'navigator.splashscreen');
+
+        // Attach the internal statusBar utility to window.statusbar
+        // see the file under plugin/ios/statusbar.js
+        require('cordova/modulemapper').clobbers('cordova/plugin/ios/statusbar', 'window.statusbar');
 
         require('cordova/channel').onNativeReady.fire();
     }
@@ -1776,6 +1780,73 @@ logger.__onDeviceReady = function () {
 
 // add a deviceready event to log queued messages
 document.addEventListener('deviceready', logger.__onDeviceReady, false);
+
+});
+
+// file: ../../cordova-js-src/plugin/ios/statusbar.js
+define("cordova/plugin/ios/statusbar", function(require, exports, module) {
+
+var exec = require('cordova/exec');
+
+var statusBarVisible = true;
+var statusBar = {};
+
+// This <script> element is explicitly used by Cordova's statusbar for computing color. (Do not use this element)
+const statusBarScript = document.createElement('script');
+document.head.appendChild(statusBarScript);
+
+Object.defineProperty(statusBar, 'visible', {
+    configurable: false,
+    enumerable: true,
+    get: function () {
+        if (window.StatusBar) {
+            // Let the CDVStatusBar plugin handle it
+            return window.StatusBar.isVisible;
+        }
+
+        return statusBarVisible;
+    },
+    set: function (value) {
+        if (window.StatusBar) {
+            // Let the CDVStatusBar plugin handle it
+            if (value) {
+                window.StatusBar.show();
+            } else {
+                window.StatusBar.hide();
+            }
+        } else {
+            statusBarVisible = value;
+            exec(null, null, 'StatusBarInternal', 'setVisible', [!!value]);
+        }
+    }
+});
+
+Object.defineProperty(statusBar, 'setBackgroundColor', {
+    configurable: false,
+    enumerable: false,
+    writable: false,
+    value: function (value) {
+        statusBarScript.style.color = value;
+        var rgbStr = window.getComputedStyle(statusBarScript).getPropertyValue('color');
+
+        if (!rgbStr.match(/^rgb/)) {
+            return;
+        }
+
+        var rgbVals = rgbStr.match(/\d+/g).map(function (v) { return parseInt(v, 10); });
+        if (rgbVals.length < 3) {
+            return;
+        }
+
+        if (window.StatusBar) {
+            window.StatusBar.backgroundColorByHexString('#' + rgbVals[0].toString(16).padStart(2, '0') + rgbVals[1].toString(16).padStart(2, '0') + rgbVals[2].toString(16).padStart(2, '0'));
+        } else {
+            exec(null, null, 'StatusBarInternal', 'setBackgroundColor', rgbVals);
+        }
+    }
+});
+
+module.exports = statusBar;
 
 });
 

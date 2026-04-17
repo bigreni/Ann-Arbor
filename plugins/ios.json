@@ -7,29 +7,29 @@
     "files": {}
   },
   "installed_plugins": {
+    "cordova-plugin-idfa": {
+      "PACKAGE_NAME": "com.annarbor.free"
+    },
     "cordova-plugin-apprate": {
-      "PACKAGE_NAME": "com.annarbor.free"
-    },
-    "cordova-plugin-device": {
-      "PACKAGE_NAME": "com.annarbor.free"
-    },
-    "cordova-plugin-dialogs": {
       "PACKAGE_NAME": "com.annarbor.free"
     },
     "cordova-plugin-geolocation": {
       "GPS_REQUIRED": "true",
       "PACKAGE_NAME": "com.annarbor.free"
     },
-    "cordova-plugin-idfa": {
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.annarbor.free"
+    },
+    "cordova-plugin-wkwebview-file-xhr": {
       "PACKAGE_NAME": "com.annarbor.free"
     },
     "cordova-plugin-inappbrowser": {
       "PACKAGE_NAME": "com.annarbor.free"
     },
-    "cordova-plugin-purchase": {
+    "cordova-plugin-dialogs": {
       "PACKAGE_NAME": "com.annarbor.free"
     },
-    "cordova-plugin-wkwebview-file-xhr": {
+    "cordova-plugin-purchase": {
       "PACKAGE_NAME": "com.annarbor.free"
     },
     "admob-plus-cordova": {
